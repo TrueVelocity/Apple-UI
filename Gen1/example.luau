@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet("https://github.com/GoHamza/AppleLibrary/blob/main/main.lua?raw=true"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TrueVelocity/Apple-UI/refs/heads/main/Gen1/library.luau"))()
 
 local window = library:init("Titlebar", true, Enum.KeyCode.RightShift, true)
 
