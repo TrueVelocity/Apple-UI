@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("YOUR_RAW_URL_HERE"))() -- or paste the library above
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TrueVelocity/Apple-UI/refs/heads/main/Gen2/library.luau"))() -- or paste the library above
 
 local window = Library.new("Apple UI Gen2", true, Enum.KeyCode.RightShift, true)
 
