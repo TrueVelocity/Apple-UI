@@ -1,2 +1,2 @@
 # Apple-UI
-This is a placeholder for da markdown file.
+Hey, this library is still in development. For now, you can use the Gen-1.
