@@ -1,72 +1,72 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TrueVelocity/Apple-UI/refs/heads/main/Gen2/library.luau"))() -- or paste the library above
+local Library = loadstring(game:HttpGet("YOUR_RAW_LINK"))() -- or paste library
 
-local window = Library.new("Apple UI Gen2", true, Enum.KeyCode.RightShift, true)
+local window = Library.new("NEON GLOW UI", true, Enum.KeyCode.RightShift, true)
 
-window:Divider("MAIN")
+window:Divider("CORE")
 
-local main = window:Section("Main")
-main:Divider("Welcome")
-main:Label("This is a fully remade Apple-style UI library.")
-main:Paragraph("It includes buttons, toggles, sliders, dropdowns, keybinds, color pickers, checkboxes, notifications and more.")
+local main = window:Section("Dashboard", "◆")
+main:Divider("Welcome to Gen3")
+main:Label("This is the glowing neon edition.")
+main:Paragraph("Everything has soft glow, better text, hover effects, and a ton of new elements.")
 
-main:Button("Click Me", function()
-    print("Button pressed!")
-    window:TempNotify("Success", "You clicked the button!", "rbxassetid://12608259004")
+main:Button("Click for Glow Notification", function()
+    window:TempNotify("Glowing!", "This toast has a soft neon glow around it.", "rbxassetid://12608259004")
 end)
 
-main:Switch("Enable Feature", false, function(state)
-    print("Switch:", state)
+main:Switch("Rainbow Accent", false, function(state)
+    window:ToggleRainbow(state)
+    print("Rainbow:", state)
 end)
 
-main:TextField("Username", "Enter username...", function(text)
-    print("TextField:", text)
+main:Slider("Intensity", 0, 100, 50, function(v)
+    print("Intensity:", v)
 end)
 
-main:Slider("WalkSpeed", 16, 200, 16, function(val)
-    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = val
-    end
+main:Progress("Loading Something Cool", 0.65)
+
+main:Stepper("Amount", 1, 20, 5, function(v)
+    print("Stepper:", v)
 end)
 
-main:Dropdown("Theme", {"Light", "Dark", "Blue", "Purple"}, "Light", function(opt)
-    print("Selected theme:", opt)
+main:Dropdown("Theme", {"Neon", "Purple", "Cyan", "Red"}, "Neon", function(t)
+    window:SetTheme(t)
+    window:TempNotify("Theme", "Switched to " .. t, nil)
 end)
 
-main:Keybind("Toggle UI", Enum.KeyCode.RightShift, function(key)
-    print("New keybind:", key.Name)
+main:Keybind("UI Toggle", Enum.KeyCode.RightShift, function(k)
+    print("Keybind set to", k.Name)
 end)
 
-main:ColorPicker("Accent Color", Color3.fromRGB(21, 103, 251), function(color)
-    print("Color selected:", color)
+main:ColorPicker("Accent Preview", Color3.fromRGB(0, 255, 170), function(c)
+    print("Color:", c)
 end)
 
-main:Checkbox("Auto Farm", false, function(state)
-    print("Auto Farm:", state)
+main:Checkbox("Enable Extra Effects", true, function(s)
+    print("Effects:", s)
+end)
+
+main:TextField("Custom Text", "Type something cool...", function(t)
+    print("Text:", t)
 end)
 
 -- Notifications section
-local notifSec = window:Section("Notifications")
-notifSec:Button("Temp Notification", function()
-    window:TempNotify("Warning", "This is a temporary toast notification.", "rbxassetid://12608259004")
+local nSec = window:Section("Notifications", "◈")
+nSec:Button("Temp Toast", function()
+    window:TempNotify("Neon Toast", "Soft glow + clean text", "rbxassetid://12608259004")
 end)
-
-notifSec:Button("Single Button Notify", function()
-    window:Notify("Hello!", "This is a modal notification with one button.", "Got it", "rbxassetid://12608259004", function()
-        print("OK clicked")
+nSec:Button("Modal (1 Button)", function()
+    window:Notify("Confirm", "This modal also glows.", "Alright", "rbxassetid://12608259004", function()
+        print("Confirmed")
     end)
 end)
-
-notifSec:Button("Two Button Notify", function()
-    window:Notify2("Confirm", "Do you want to continue?", "Yes", "No", "rbxassetid://12608259004",
+nSec:Button("Modal (2 Buttons)", function()
+    window:Notify2("Are you sure?", "This action cannot be undone.", "Yes", "Cancel", nil,
         function() print("Yes") end,
-        function() print("No") end
-    )
+        function() print("Cancel") end)
 end)
 
 window:GreenButton(function()
-    print("Green traffic light clicked!")
-    window:TempNotify("Green Button", "You pressed the green button!", "rbxassetid://12608259004")
+    window:TempNotify("Green Button", "You pressed the glowing green light!", nil)
 end)
 
--- Select first section
 main:Select()
