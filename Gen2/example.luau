@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("YOUR_RAW_LINK"))() -- or paste library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TrueVelocity/Apple-UI/refs/heads/main/Gen2/library.luau"))() -- or paste library
 
 local window = Library.new("NEON GLOW UI", true, Enum.KeyCode.RightShift, true)
 
